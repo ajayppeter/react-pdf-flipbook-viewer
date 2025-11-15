@@ -1,15 +1,22 @@
-
-```md
 # React PDF Flipbook Viewer
 
-This project is a React-based PDF flipbook viewer that allows users to view PDF documents in a flipbook format. It is built using Next.js and various other libraries to provide a seamless and interactive experience.
-Here is the codesandbox Link-
+A React-based PDF flipbook viewer that allows users to view PDF documents in an interactive flipbook format. Built with Next.js for a seamless and immersive reading experience.
 
-https://codesandbox.io/p/github/mohitkumawat310/react-pdf-flipbook-viewer/master?import=true
+## 🎮 Live Demo
 
-## Getting Started
+Try it out on CodeSandbox: [Live Demo](https://codesandbox.io/p/github/mohitkumawat310/react-pdf-flipbook-viewer/master?import=true)
 
-First, run the development server:
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development Server
+
+Run the development server using one of the following commands:
 
 ```bash
 npm run dev
@@ -21,90 +28,106 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 📖 **Flipbook Navigation** - Navigate through PDF pages with smooth flipbook-style animations
+- 🔍 **Zoom and Pan** - Zoom in/out and pan around pages for detailed viewing
+- 🖥️ **Fullscreen Mode** - Toggle fullscreen for an immersive reading experience
+- ⌨️ **Keyboard Shortcuts** - Use arrow keys for quick page navigation
+- 📱 **Responsive Design** - Optimized for all screen sizes and devices
 
-## Features
-
-- **Flipbook Navigation**: Navigate through the PDF pages using flipbook-style animations.
-- **Zoom and Pan**: Zoom in and out of the pages and pan around for better viewing.
-- **Fullscreen Mode**: Toggle fullscreen mode for an immersive reading experience.
-- **Keyboard Shortcuts**: Use keyboard arrows to navigate through the pages.
-- **Responsive Design**: Optimized for various screen sizes.
-
-## Components
+## 📚 API Reference
 
 ### FlipbookViewer
 
-| Prop          | Type      | Description                                      |
-|---------------|-----------|--------------------------------------------------|
-| `pdfUrl`      | `string`  | URL of the PDF document to be displayed.         |
-| `shareUrl`    | `string`  | URL to be used for sharing the document.         |
-| `className`   | `string`  | Additional CSS classes for styling.              |
-| `disableShare`| `boolean` | Flag to disable the share button.                |
+Main component for displaying the PDF flipbook.
+
+| Prop           | Type      | Required | Description                                  |
+| -------------- | --------- | -------- | -------------------------------------------- |
+| `pdfUrl`       | `string`  | Yes      | URL of the PDF document to display           |
+| `shareUrl`     | `string`  | No       | URL for sharing the document                 |
+| `className`    | `string`  | No       | Additional CSS classes for custom styling    |
+| `disableShare` | `boolean` | No       | Disables the share button when set to `true` |
 
 ### Toolbar
 
-| Prop            | Type       | Description                                      |
-|-----------------|------------|--------------------------------------------------|
-| `flipbookRef`   | `object`   | Reference to the flipbook component.             |
-| `containerRef`  | `object`   | Reference to the container element.              |
-| `screenfull`    | `object`   | Screenfull instance for fullscreen functionality.|
-| `pdfDetails`    | `object`   | Details of the PDF document (total pages, etc.). |
-| `viewerStates`  | `object`   | State of the viewer (current page, zoom scale).  |
-| `shareUrl`      | `string`   | URL to be used for sharing the document.         |
-| `disableShare`  | `boolean`  | Flag to disable the share button.                |
+Toolbar component providing navigation and control options.
+
+| Prop           | Type      | Required | Description                                  |
+| -------------- | --------- | -------- | -------------------------------------------- |
+| `flipbookRef`  | `object`  | Yes      | Reference to the flipbook component          |
+| `containerRef` | `object`  | Yes      | Reference to the container element           |
+| `screenfull`   | `object`  | Yes      | Screenfull instance for fullscreen control   |
+| `pdfDetails`   | `object`  | Yes      | PDF document details (total pages, etc.)     |
+| `viewerStates` | `object`  | Yes      | Current viewer state (page, zoom scale)      |
+| `shareUrl`     | `string`  | No       | URL for sharing the document                 |
+| `disableShare` | `boolean` | No       | Disables the share button when set to `true` |
 
 ### Flipbook
 
-| Prop            | Type       | Description                                      |
-|-----------------|------------|--------------------------------------------------|
-| `viewerStates`  | `object`   | State of the viewer (current page, zoom scale).  |
-| `setViewerStates`| `function`| Function to update the viewer state.             |
-| `flipbookRef`   | `object`   | Reference to the flipbook component.             |
-| `pdfDetails`    | `object`   | Details of the PDF document (total pages, etc.). |
+Core flipbook component handling page rendering and animations.
+
+| Prop              | Type       | Required | Description                              |
+| ----------------- | ---------- | -------- | ---------------------------------------- |
+| `viewerStates`    | `object`   | Yes      | Current viewer state (page, zoom scale)  |
+| `setViewerStates` | `function` | Yes      | Function to update the viewer state      |
+| `flipbookRef`     | `object`   | Yes      | Reference to the flipbook component      |
+| `pdfDetails`      | `object`   | Yes      | PDF document details (total pages, etc.) |
 
 ### SliderNav
 
-| Prop            | Type       | Description                                      |
-|-----------------|------------|--------------------------------------------------|
-| `flipbookRef`   | `object`   | Reference to the flipbook component.             |
-| `pdfDetails`    | `object`   | Details of the PDF document (total pages, etc.). |
-| `viewerStates`  | `object`   | State of the viewer (current page, zoom scale).  |
+Slider component for quick page navigation.
 
-## Learn More
+| Prop           | Type     | Required | Description                              |
+| -------------- | -------- | -------- | ---------------------------------------- |
+| `flipbookRef`  | `object` | Yes      | Reference to the flipbook component      |
+| `pdfDetails`   | `object` | Yes      | PDF document details (total pages, etc.) |
+| `viewerStates` | `object` | Yes      | Current viewer state (page, zoom scale)  |
 
-To learn more about Next.js, take a look at the following resources:
+## 📖 Learn More
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Next.js Resources
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
+- [Learn Next.js](https://nextjs.org/learn) - Interactive Next.js tutorial
+- [Next.js GitHub Repository](https://github.com/vercel/next.js/) - Feedback and contributions welcome
 
-## Deploy on Vercel
+## 🚢 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deploy on Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The easiest way to deploy this application is using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-## Special Thanks
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more deployment options.
 
-Special thanks to the following libraries that made this project possible:
+## 🙏 Acknowledgments
 
-- [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [react-pdf](https://github.com/wojtekmaj/react-pdf)
-- [react-pageflip](https://github.com/Nodlik/react-pageflip)
-- [react-zoom-pan-pinch](https://github.com/prc5/react-zoom-pan-pinch)
-- [screenfull](https://github.com/sindresorhus/screenfull.js)
-- [radix-ui](https://www.radix-ui.com/)
-- [tailwindcss](https://tailwindcss.com/)
-- [class-variance-authority](https://github.com/joe-bell/class-variance-authority)
-- [clsx](https://github.com/lukeed/clsx)
-- [lucide-react](https://github.com/lucide-icons/lucide)
-- [keyboardjs](https://github.com/RobertWHurst/KeyboardJS)
-- [react-share](https://github.com/nygardk/react-share)
-- [sonner](https://github.com/emilkowalski/sonner)
+This project is built with amazing open-source libraries:
+
+### Core Technologies
+
+- [Next.js](https://nextjs.org/) - React framework
+- [React](https://reactjs.org/) - UI library
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+
+### PDF & Flipbook
+
+- [react-pdf](https://github.com/wojtekmaj/react-pdf) - PDF rendering
+- [react-pageflip](https://github.com/Nodlik/react-pageflip) - Page flip animations
+- [react-zoom-pan-pinch](https://github.com/prc5/react-zoom-pan-pinch) - Zoom and pan functionality
+
+### UI Components & Utilities
+
+- [Radix UI](https://www.radix-ui.com/) - Accessible UI components
+- [Lucide React](https://github.com/lucide-icons/lucide) - Icon library
+- [Screenfull](https://github.com/sindresorhus/screenfull.js) - Fullscreen API wrapper
+- [KeyboardJS](https://github.com/RobertWHurst/KeyboardJS) - Keyboard event handling
+- [React Share](https://github.com/nygardk/react-share) - Social sharing buttons
+- [Sonner](https://github.com/emilkowalski/sonner) - Toast notifications
+
+### Styling Utilities
+
+- [class-variance-authority](https://github.com/joe-bell/class-variance-authority) - CSS variant management
+- [clsx](https://github.com/lukeed/clsx) - Class name utility
